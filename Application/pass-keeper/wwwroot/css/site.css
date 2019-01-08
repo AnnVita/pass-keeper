@@ -1,37 +1,224 @@
-/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification 
-for details on configuring this project to bundle and minify static web assets. */
+/* default razor styes */
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
+     padding-top: 50px;
+     padding-bottom: 20px
+ }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
+ .body-content {
+     padding-left: 15px;
+     padding-right: 15px
+ }
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
-}
+ .carousel-caption p {
+     font-size: 20px;
+     line-height: 1.4
+ }
 
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
-}
+ .carousel-inner .item img[src$=".svg"] {
+     width: 100%
+ }
 
-/* QR code generator */
-#qrCode {
-    margin: 15px;
-}
+ #qrCode {
+     margin: 15px
+ }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
-    }
-}
+ @media screen and (max-width: 767px) {
+     .carousel-caption {
+         display:none
+     }
+ }
+
+/* /default razor styes */
+
+ .page-title {
+    font: bold 30px Arial, sans-serif;
+    color: #4a506d;
+    text-transform: uppercase;
+ }
+
+ .container {
+    max-width: 1170px;
+    margin: 0 auto;
+ }
+
+ .tab-block {
+    font-family: Arial, sans-serif;
+ }
+
+ .tab-control, .tab-control * {
+   box-sizing: border-box;
+ }
+
+ .tab-control__list {
+   display: flex;
+   flex-direction: row;
+   padding: 4px 0 0 0;
+   border-bottom: 1px solid #4a506d;
+ }
+
+ .tab-control__item:first-child {
+    margin-left: 0;
+ }
+
+ .tab-control__item:last-child {
+    margin-right: 0;
+ }
+
+ .tab-control__item {
+   background: #fff;
+   color: #3F51B5;
+   flex: 0 0 112px;
+   height: 32px;
+   line-height: 32px;
+   text-align: center;
+   margin: 0 4px;
+   cursor: pointer;
+   border: 0 dashed #4a506d;
+   border-radius: 6px 6px 0 0;
+   border-width: 1px 1px 0 1px;
+ }
+
+ .tab-control__item:hover {
+   background-image: -webkit-repeating-radial-gradient(center center, rgba(0,0,0,.5), rgba(0,0,0,.5) 1px, transparent 1px, transparent 100%);
+   background-image: -moz-repeating-radial-gradient(center center, rgba(0,0,0,.5), rgba(0,0,0,.5) 1px, transparent 1px, transparent 100%);
+   background-image: -ms-repeating-radial-gradient(center center, rgba(0,0,0,.5), rgba(0,0,0,.5) 1px, transparent 1px, transparent 100%);
+   background-image: repeating-radial-gradient(center center, rgba(0,0,0,.5), rgba(0,0,0,.5) 1px, transparent 1px, transparent 100%);
+   -webkit-background-size: 3px 3px;
+   -moz-background-size: 3px 3px;
+   background-size: 3px 3px;
+ }
+
+ .tab-control__item_current {
+   border-style: solid;
+   color: #fff;
+   background-color: #4a506d;
+   pointer-events: none;
+ }
+
+ .tab-control__item_new {
+   flex-basis: 40px;
+ }
+
+ .tab-control__inside {
+    display: none;
+ }
+
+ .tab-control__inside_current {
+    display: block;
+ }
+
+ .checker-tools {
+   display: flex;
+   flex-direction: row
+ }
+
+ .checker-tools__form {
+   border: 0 solid #4a506d;
+   border-width: 0 1px 1px 1px;
+   padding: 0;
+   display: flex;
+   flex: 1 1 520px;
+   flex-direction: row;
+   flex-wrap: wrap;
+ }
+
+ .checker-tools__checking-results {
+   display: flex;
+   flex: 1 1 160px;
+   flex-direction: column;
+   border: 0 solid #4a506d;
+   border-width: 0 1px 1px 0;
+   padding: 10px;
+ }
+
+ .checker-tools__icon {
+   height: 54px;
+   width: 54px;
+   background: #4a506d;
+   border-radius: 34px;
+   margin: 0 auto 12px auto;
+ }
+
+ .checker-tools__text {
+   color: #4a506d;
+   text-transform: uppercase;
+   margin: 0 auto;
+ }
+
+ .checker-tools__form-input-container {
+   padding: 16px 0 0 0;
+   flex: 1 1 46%;
+   margin: 0 10px;
+ }
+
+ .checker-tools__form-input-container_small {
+   flex: 1 1 62px;
+ }
+
+ .input-container {
+   position: relative;
+   padding: 8px 0 0 0;
+ }
+
+ .input-container__name {
+   color: #3F51B5;
+   top: -3px;
+   left: 10px;
+   position: absolute;
+   background-color: #fff;
+   z-index: 99;
+   padding: 0 6px;
+   pointer-events: none;
+ }
+
+ .input-container__input {
+   height: 40px;
+   line-height: 42px;
+   display: block;
+   -webkit-appearance: none!important;
+   border: 1px dashed #4a506d;
+   width: 100%;
+   cursor: pointer;
+   padding: 0 16px;
+   font-size: 16px;
+   font-weight: bold;
+ }
+
+ .checker-tools__submit-container {
+   position: relative;
+   border: 1px solid #4a506d;
+   padding: 8px 8px 8px 38px;
+   background: #4a506d;
+   color: #fff;
+   flex: 2 1 100%;
+   margin: 18px 0 0 0;
+   cursor: pointer;
+ }
+
+ .checker-tools__submit-button {
+   text-transform: uppercase;
+ }
+
+ .checker-tools__submit-button::before {
+   content: " ";
+   background: #fff;
+   width: 20px;
+   height: 20px;
+   display: block;
+   position: absolute;
+   border-radius: 10px;
+   left: 8px;
+   top: 8px;
+   pointer-events: none;
+ }
+
+ .checker-tools__submit-button::after {
+   content: " ";
+   border: 10px solid transparent;
+   border-left-color: #fff;
+   display: block;
+   position: absolute;
+   top: 8px;
+   right: 8px;
+   pointer-events: none;
+ }

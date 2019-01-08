@@ -1,239 +1,110 @@
 ﻿@page
 @model TestModel
 @{
-ViewData["Title"] = "";
+ViewData["Title"] = "Pass-checker";
 }
-<h2>@ViewData["Title"]</h2>
-
-<style>
-  nav.navbar-fixed-top {
-     display: none;
-  }
-
-  .tab-block {
-  }
-
-  .tab-control, .tab-control * {
-    box-sizing: border-box;
-  }
-
-  .tab-control__list {
-    display: flex;
-    flex-direction: row;
-    padding: 4px 0 0 0;
-    border-bottom: 1px solid #4a506d;
-  }
-
-  .tab-control__item:first-child {
-     margin-left: 0;
-  }
-
-  .tab-control__item:last-child {
-     margin-right: 0;
-  }
-
-  .tab-control__item {
-    background: #fff;
-    color: #3F51B5;
-    flex: 0 0 112px;
-    height: 32px;
-    line-height: 32px;
-    text-align: center;
-    margin: 0 4px;
-    cursor: pointer;
-    border: 0 dashed #4a506d;
-    border-radius: 6px 6px 0 0;
-    border-width: 1px 1px 0 1px;
-  }
-
-  .tab-control__item:hover {
-    background-image: -webkit-repeating-radial-gradient(center center, rgba(0,0,0,.5), rgba(0,0,0,.5) 1px, transparent 1px, transparent 100%);
-    background-image: -moz-repeating-radial-gradient(center center, rgba(0,0,0,.5), rgba(0,0,0,.5) 1px, transparent 1px, transparent 100%);
-    background-image: -ms-repeating-radial-gradient(center center, rgba(0,0,0,.5), rgba(0,0,0,.5) 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, rgba(0,0,0,.5), rgba(0,0,0,.5) 1px, transparent 1px, transparent 100%);
-    -webkit-background-size: 3px 3px;
-    -moz-background-size: 3px 3px;
-    background-size: 3px 3px;
-  }
-
-  .tab-control__item_current {
-    border-style: solid;
-    color: #fff;
-    background-color: #4a506d;
-    pointer-events: none;
-  }
-
-  .tab-control__item_new {
-    flex-basis: 40px;
-  }
-
-  .checker-tools {
-    display: flex;
-    flex-direction: row
-  }
-
-  .checker-tools__form {
-    border: 0 solid #4a506d;
-    border-width: 0 1px 1px 1px;
-    padding: 0;
-    display: flex;
-    flex: 1 1 520px;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .checker-tools__checking-results {
-    display: flex;
-    flex: 1 1 160px;
-    flex-direction: column;
-    border: 0 solid #4a506d;
-    border-width: 0 1px 1px 0;
-    padding: 10px;
-  }
-
-  .checker-tools__icon {
-    height: 54px;
-    width: 54px;
-    background: #4a506d;
-    border-radius: 34px;
-    margin: 0 auto 12px auto;
-  }
-
-  .checker-tools__text {
-    color: #4a506d;
-    text-transform: uppercase;
-    margin: 0 auto;
-  }
-
-  .checker-tools__form-input-container {
-    padding: 16px 0 0 0;
-    flex: 1 1 46%;
-    margin: 0 10px;
-  }
-
-  .checker-tools__form-input-container_small {
-    flex: 1 1 62px;
-  }
-
-  .input-container {
-    position: relative;
-    padding: 8px 0 0 0;
-  }
-
-  .input-container__name {
-    color: #3F51B5;
-    top: -3px;
-    left: 10px;
-    position: absolute;
-    background-color: #fff;
-    z-index: 99;
-    padding: 0 6px;
-    pointer-events: none;
-  }
-
-  .input-container__input {
-    height: 40px;
-    line-height: 42px;
-    display: block;
-    -webkit-appearance: none!important;
-    border: 1px dashed #4a506d;
-    width: 100%;
-    cursor: pointer;
-    padding: 0 16px;
-    font-size: 16px;
-    font-weight: bold;
-  }
-
-  .checker-tools__submit-container {
-    position: relative;
-    border: 1px solid #4a506d;
-    padding: 8px 8px 8px 38px;
-    background: #4a506d;
-    color: #fff;
-    flex: 2 1 100%;
-    margin: 18px 0 0 0;
-  }
-
-  .checker-tools__submit-button {
-    text-transform: uppercase;
-  }
-
-  .checker-tools__submit-button::before {
-    content: " ";
-    background: #fff;
-    width: 20px;
-    height: 20px;
-    display: block;
-    position: absolute;
-    border-radius: 10px;
-    left: 8px;
-    top: 8px;
-    pointer-events: none;
-  }
-
-  .checker-tools__submit-button::after {
-    content: " ";
-    border: 10px solid transparent;
-    border-left-color: #fff;
-    display: block;
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    pointer-events: none;
-  }
-</style>
+<h2 class="page-title">@ViewData["Title"]</h2>
 
 <div class="tab-block">
   <div class="tab-control">
-    <div class="tab-control__list">
+    <div class="tab-control__list" id="tab-control-list">
       <div class="tab-control__item tab-control__item_current">FTP</div>
-      <div class="tab-control__item">SFTP</div>
+      <div class="tab-control__item">FTP</div>
       <div class="tab-control__item tab-control__item_new">+</div>
     </div>
-    <div class="tab-control__inside tab-control__inside_current">
-      <div class="checker-tools">
-        <div class="checker-tools__form">
-          <div class="checker-tools__form-input-container">
-            <div class="input-container">
-              <div class="input-container__name">
-                Host name:
+    <div class="tab-control-content" id="tab-control-content">
+      <div class="tab-control__inside tab-control__inside_current">
+        <div class="checker-tools">
+          <div class="checker-tools__form">
+            <div class="checker-tools__form-input-container">
+              <div class="input-container">
+                <div class="input-container__name">
+                  Host name:
+                </div>
+                <input type="text" class="input-container__input" />
               </div>
-              <input type="text" class="input-container__input" />
+            </div>
+            <div class="checker-tools__form-input-container checker-tools__form-input-container_small">
+              <div class="input-container">
+                <div class="input-container__name">
+                  Port:
+                </div>
+                <input type="text" class="input-container__input" />
+              </div>
+            </div>
+            <div class="checker-tools__form-input-container">
+              <div class="input-container">
+                <div class="input-container__name">
+                  User name:
+                </div>
+                <input type="text" class="input-container__input" />
+              </div>
+            </div>
+            <div class="checker-tools__form-input-container">
+              <div class="input-container">
+                <div class="input-container__name">
+                  Password:
+                </div>
+                <input type="text" type="password" class="input-container__input" />
+              </div>
+            </div>
+            <div class="checker-tools__submit-container">
+              <div class="checker-tools__submit-button">
+                Проверить
+              </div>
             </div>
           </div>
-          <div class="checker-tools__form-input-container checker-tools__form-input-container_small">
-            <div class="input-container">
-              <div class="input-container__name">
-                Port:
-              </div>
-              <input type="text" class="input-container__input" />
-            </div>
-          </div>
-          <div class="checker-tools__form-input-container">
-            <div class="input-container">
-              <div class="input-container__name">
-                User name:
-              </div>
-              <input type="text" class="input-container__input" />
-            </div>
-          </div>
-          <div class="checker-tools__form-input-container">
-            <div class="input-container">
-              <div class="input-container__name">
-                Password:
-              </div>
-              <input type="text" type="password" class="input-container__input" />
-            </div>
-          </div>
-          <div class="checker-tools__submit-container">
-            <div class="checker-tools__submit-button">
-               Проверить
-            </div>
+          <div class="checker-tools__checking-results">
+            <div class="checker-tools__icon"></div>
+            <div class="checker-tools__text">Result</div>
           </div>
         </div>
-        <div class="checker-tools__checking-results">
-          <div class="checker-tools__icon"></div>
-          <div class="checker-tools__text">Result</div>
+      </div>
+      <div class="tab-control__inside">
+        <div class="checker-tools">
+          <div class="checker-tools__form">
+            <div class="checker-tools__form-input-container">
+              <div class="input-container">
+                <div class="input-container__name">
+                  Host name:
+                </div>
+                <input type="text" class="input-container__input" />
+              </div>
+            </div>
+            <div class="checker-tools__form-input-container checker-tools__form-input-container_small">
+              <div class="input-container">
+                <div class="input-container__name">
+                  Port:
+                </div>
+                <input type="text" class="input-container__input" />
+              </div>
+            </div>
+            <div class="checker-tools__form-input-container">
+              <div class="input-container">
+                <div class="input-container__name">
+                  User name:
+                </div>
+                <input type="text" class="input-container__input" />
+              </div>
+            </div>
+            <div class="checker-tools__form-input-container">
+              <div class="input-container">
+                <div class="input-container__name">
+                  Password:
+                </div>
+                <input type="text" type="password" class="input-container__input" />
+              </div>
+            </div>
+            <div class="checker-tools__submit-container">
+              <div class="checker-tools__submit-button">
+                Проверить
+              </div>
+            </div>
+          </div>
+          <div class="checker-tools__checking-results">
+            <div class="checker-tools__icon"></div>
+            <div class="checker-tools__text">Result</div>
+          </div>
         </div>
       </div>
     </div>
