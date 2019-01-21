@@ -199,6 +199,18 @@ body {
    text-transform: uppercase;
  }
 
+ .checker-tools__submit-button input {
+  display: block;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+  text-transform: uppercase;
+  color: #fff;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+ }
+
  .checker-tools__submit-button::before {
    content: " ";
    background: #fff;
@@ -222,3 +234,42 @@ body {
    right: 8px;
    pointer-events: none;
  }
+
+.info-text {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0 0 0;
+    border: 0 solid #4a506d;
+    border-width: 1px 0 0 0;
+    color: #3F51B5;
+}
+
+.info-text__to-copy {
+  border: 0 solid #4a506d;
+    border-width: 0 1px 1px 1px;
+    display: flex;
+    flex: 1 1 520px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px 10px 40px 40px;
+    position: relative;
+}
+
+.info-text__explanation {
+  display: flex;
+  flex: 1 1 160px;
+  flex-direction: column;
+  border: 0 solid #4a506d;
+  border-width: 0 1px 1px 0;
+  padding: 10px;
+}
+
+.info-text__copy-button {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border: 10px solid #4a506d;
+  cursor: pointer;
+}

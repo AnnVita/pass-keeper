@@ -4,24 +4,21 @@
 ViewData["Title"] = "Pass-checker";
 }
 <h2 class="page-title">@ViewData["Title"]</h2>
-
 <div class="tab-block">
   <div class="tab-control">
     <div class="tab-control__list" id="tab-control-list">
       <div class="tab-control__item tab-control__item_current">FTP</div>
-      <div class="tab-control__item">FTP</div>
-      <div class="tab-control__item tab-control__item_new">+</div>
     </div>
     <div class="tab-control-content" id="tab-control-content">
       <div class="tab-control__inside tab-control__inside_current">
         <div class="checker-tools">
-          <div class="checker-tools__form">
+          <form class="checker-tools__form" method="post">
             <div class="checker-tools__form-input-container">
               <div class="input-container">
                 <div class="input-container__name">
                   Host name:
                 </div>
-                <input type="text" class="input-container__input" />
+                <input type="text" name="HostName" class="input-container__input" />
               </div>
             </div>
             <div class="checker-tools__form-input-container checker-tools__form-input-container_small">
@@ -29,7 +26,7 @@ ViewData["Title"] = "Pass-checker";
                 <div class="input-container__name">
                   Port:
                 </div>
-                <input type="text" class="input-container__input" />
+                <input type="number" name="Port" class="input-container__input" />
               </div>
             </div>
             <div class="checker-tools__form-input-container">
@@ -37,7 +34,7 @@ ViewData["Title"] = "Pass-checker";
                 <div class="input-container__name">
                   User name:
                 </div>
-                <input type="text" class="input-container__input" />
+                <input type="text" name="Login" class="input-container__input" />
               </div>
             </div>
             <div class="checker-tools__form-input-container">
@@ -45,65 +42,30 @@ ViewData["Title"] = "Pass-checker";
                 <div class="input-container__name">
                   Password:
                 </div>
-                <input type="text" type="password" class="input-container__input" />
+                <input type="text" name="Password" class="input-container__input" />
               </div>
             </div>
             <div class="checker-tools__submit-container">
               <div class="checker-tools__submit-button">
-                Проверить
+                <input type="submit" value="Проверить" />
               </div>
             </div>
-          </div>
+          </form>
           <div class="checker-tools__checking-results">
             <div class="checker-tools__icon"></div>
-            <div class="checker-tools__text">Result</div>
+            <div class="checker-tools__text">@Model.Result</div>
           </div>
         </div>
       </div>
-      <div class="tab-control__inside">
-        <div class="checker-tools">
-          <div class="checker-tools__form">
-            <div class="checker-tools__form-input-container">
-              <div class="input-container">
-                <div class="input-container__name">
-                  Host name:
-                </div>
-                <input type="text" class="input-container__input" />
-              </div>
-            </div>
-            <div class="checker-tools__form-input-container checker-tools__form-input-container_small">
-              <div class="input-container">
-                <div class="input-container__name">
-                  Port:
-                </div>
-                <input type="text" class="input-container__input" />
-              </div>
-            </div>
-            <div class="checker-tools__form-input-container">
-              <div class="input-container">
-                <div class="input-container__name">
-                  User name:
-                </div>
-                <input type="text" class="input-container__input" />
-              </div>
-            </div>
-            <div class="checker-tools__form-input-container">
-              <div class="input-container">
-                <div class="input-container__name">
-                  Password:
-                </div>
-                <input type="text" type="password" class="input-container__input" />
-              </div>
-            </div>
-            <div class="checker-tools__submit-container">
-              <div class="checker-tools__submit-button">
-                Проверить
-              </div>
+      <div class="tab-control__info">
+        <div class="info-text">
+          <div class="info-text__to-copy">
+            <div id="item-to-copy"> @Model.StringToCopy </div>
+            <div class="info-text__copy-button">
             </div>
           </div>
-          <div class="checker-tools__checking-results">
-            <div class="checker-tools__icon"></div>
-            <div class="checker-tools__text">Result</div>
+          <div class="info-text__explanation">
+            @Model.Explanation
           </div>
         </div>
       </div>
